@@ -1719,12 +1719,12 @@ appState_94089[0] = state_95014;
 redrawForce_90401();
 framePtr = F.prev;
 }
-function b_95015(samples_95017) {
+function b_95020(samples_95022) {
 
 var F={procname:"nim_uibench.b",prev:framePtr,filename:"nim_uibench.nim",line:0};
 framePtr = F;
-F.line = 100;
-document.body.innerHTML = (("<pre>" + JSON.stringify(samples_95017)) + "</pre>");
+F.line = 102;
+document.body.innerHTML = (("<pre>" + JSON.stringify(samples_95022, null, ' ')) + "</pre>");
 framePtr = F.prev;
 }
-uibench.run(a_95012, b_95015);
+uibench.run(a_95012, b_95020);
