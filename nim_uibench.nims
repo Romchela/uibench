@@ -1,1 +1,1 @@
---path: "../src"
+--path: "../pragmagicOld/src"
