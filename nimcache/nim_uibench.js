@@ -12,9 +12,10 @@ if (typeof Uint16Array === 'undefined') Uint16Array = Array;
 if (typeof Uint32Array === 'undefined') Uint32Array = Array;
 if (typeof Float32Array === 'undefined') Float32Array = Array;
 if (typeof Float64Array === 'undefined') Float64Array = Array;
+var NTI27004 = {size: 0,kind: 31,base: null,node: null,finalizer: null};
+var NTI89618 = {size: 0,kind: 24,base: null,node: null,finalizer: null};
 var NTI76458 = {size: 0,kind: 16,base: null,node: null,finalizer: null};
 var NTI76452 = {size: 0,kind: 16,base: null,node: null,finalizer: null};
-var NTI76741 = {size: 0,kind: 24,base: null,node: null,finalizer: null};
 var NTI30240 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
 var NTI30208 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
 var NTI27038 = {size: 0,kind: 28,base: null,node: null,finalizer: null};
@@ -41,9 +42,9 @@ NTI30242.base = NTI30238;
 var NNI30240 = {kind: 2, len: 0, offset: 0, typ: null, name: null, sons: []};
 NTI30240.node = NNI30240;
 NTI30240.base = NTI30238;
-NTI76741.base = NTI27040;
 NTI76452.base = NTI27040;
 NTI76458.base = NTI27040;
+NTI89618.base = NTI27004;
 function makeNimstrLit(c_40803) {
 
     var ln = c_40803.length;
@@ -333,72 +334,73 @@ var dorender_89480 = [null];
 var currentTree_89481 = [null];
 var appState_94089 = [null];
 uibench.init("Nim-karax", "0.6.1");
-function setRendererOnly_90411(renderer_90415) {
+function setRendererOnly_90811(renderer_90815) {
 
-dorender_89480[0] = renderer_90415;
+dorender_89480[0] = renderer_90815;
 }
-function newVNode_76851(kind_76853) {
+function newVNode_76928(kind_76930) {
 
-var result_76854 = null;
-result_76854 = {kind: kind_76853, key: -1, id: null, class: null, text: null, kids: null, attrs: null, events: null, hash: 0, validHash: false, dom: null};
-return result_76854;
+var result_76931 = null;
+result_76931 = {kind: kind_76930, key: -1, id: null, class: null, text: null, track: 0, kids: null, attrs: null, events: null, dom: null};
+return result_76931;
 }
-function add_76837(parent_76839, kid_76840) {
+function add_76914(parent_76916, kid_76917) {
 
-if (parent_76839.kids != null) { parent_76839.kids.push(kid_76840); } else { parent_76839.kids = [kid_76840]; };
+if (parent_76916.kids != null) { parent_76916.kids.push(kid_76917); } else { parent_76916.kids = [kid_76917]; };
 }
-function tree_76856(kind_76858, kids_76860) {
+function tree_76933(kind_76935, kids_76937) {
 
-var result_76861 = null;
-result_76861 = newVNode_76851(kind_76858);
+var result_76938 = null;
+result_76938 = newVNode_76928(kind_76935);
 L1: do {
-var k_76886 = null;
-var i_76890 = 0;
+var k_76963 = null;
+var i_76967 = 0;
 L2: do {
 L3: while (true) {
-if (!(i_76890 < (kids_76860 != null ? kids_76860.length : 0))) break L3;
-k_76886 = kids_76860[i_76890];
-add_76837(result_76861, k_76886);
-i_76890 += 1;
+if (!(i_76967 < (kids_76937 != null ? kids_76937.length : 0))) break L3;
+k_76963 = kids_76937[i_76967];
+add_76914(result_76938, k_76963);
+i_76967 += 1;
 }
 } while(false);
 } while(false);
-return result_76861;
+return result_76938;
 }
-function setAttr_76718(n_76720, key_76721, val_76722) {
+function setAttr_76716(n_76718, key_76719, val_76720) {
 
 BeforeRet: do {
-if ((n_76720.attrs === null)) {
-n_76720.attrs = nimCopy(null, [key_76721, val_76722], NTI76741);
+if ((n_76718.attrs === null)) {
+var x_76813 = [key_76719, val_76720];
+n_76718.attrs = x_76813;
 }
 else {
 L1: do {
-var i_76760 = 0;
-var colontmp__76782 = 0;
-colontmp__76782 = ((n_76720.attrs != null ? n_76720.attrs.length : 0) - 2);
-var res_76785 = 0;
+var i_76832 = 0;
+var colontmp__76854 = 0;
+colontmp__76854 = ((n_76718.attrs != null ? n_76718.attrs.length : 0) - 2);
+var res_76857 = 0;
 L2: do {
 L3: while (true) {
-if (!(res_76785 <= colontmp__76782)) break L3;
-i_76760 = res_76785;
-if ((n_76720.attrs[i_76760] == key_76721)) {
-n_76720.attrs[(i_76760 + 1)] = val_76722;
+if (!(res_76857 <= colontmp__76854)) break L3;
+i_76832 = res_76857;
+if ((n_76718.attrs[i_76832] == key_76719)) {
+n_76718.attrs[(i_76832 + 1)] = val_76720;
 break BeforeRet;
 }
 
-res_76785 += 2;
+res_76857 += 2;
 }
 } while(false);
 } while(false);
-if (n_76720.attrs != null) { n_76720.attrs.push(key_76721); } else { n_76720.attrs = [key_76721]; };
-if (n_76720.attrs != null) { n_76720.attrs.push(val_76722); } else { n_76720.attrs = [val_76722]; };
+if (n_76718.attrs != null) { n_76718.attrs.push(key_76719); } else { n_76718.attrs = [key_76719]; };
+if (n_76718.attrs != null) { n_76718.attrs.push(val_76720); } else { n_76718.attrs = [val_76720]; };
 }
 
 } while (false); 
 }
-function addEventListener_77041(n_77043, event_77044, handler_77045) {
+function addEventListener_77118(n_77120, event_77121, handler_77122) {
 
-if (n_77043.events != null) { n_77043.events.push({Field0: event_77044, Field1: handler_77045}); } else { n_77043.events = [{Field0: event_77044, Field1: handler_77045}]; };
+if (n_77120.events != null) { n_77120.events.push({Field0: event_77121, Field1: handler_77122}); } else { n_77120.events = [{Field0: event_77121, Field1: handler_77122}]; };
 }
 function key_89013(e_89015) {
 
@@ -412,15 +414,15 @@ result_89016 = -1;
 
 return result_89016;
 }
-function valueeq__76512(n_76514, v_76515) {
+function valueeq__76510(n_76512, v_76513) {
 
-n_76514.text = v_76515;
+n_76512.text = v_76513;
 }
-function value_76508(n_76510) {
+function value_76506(n_76508) {
 
-var result_76511 = null;
-result_76511 = n_76510.text;
-return result_76511;
+var result_76509 = null;
+result_76509 = n_76508.text;
+return result_76509;
 }
 function wrapEvent_89047(d_89049, n_89050, k_89051, action_89052) {
 
@@ -430,9 +432,9 @@ function colonanonymous__89087(ev_89089) {
 
 function wrapper_89090() {
 
-valueeq__76512(n_89085, ev_89089.target.value);
+valueeq__76510(n_89085, ev_89089.target.value);
 action_89084(ev_89089, n_89085);
-ev_89089.target.value = value_76508(n_89085);
+ev_89089.target.value = value_76506(n_89085);
 }
 if (!((timer_89086 == null))) {
 clearTimeout(timer_89086);
@@ -452,9 +454,9 @@ function enterWrapper_89064() {
 function colonanonymous__89072(ev_89074) {
 
 if ((ev_89074.keyCode == 13)) {
-valueeq__76512(n_89071, ev_89074.target.value);
+valueeq__76510(n_89071, ev_89074.target.value);
 action_89070(ev_89074, n_89071);
-ev_89074.target.value = value_76508(n_89071);
+ev_89074.target.value = value_76506(n_89071);
 }
 
 }
@@ -602,52 +604,128 @@ function replaceById_89484(id_89486, newTree_89487) {
 var x_89488 = document.getElementById(id_89486);
 x_89488.parentNode.replaceChild(newTree_89487, x_89488);
 }
-function len_76821(x_76823) {
+function eq_76620(a_76622, b_76623) {
 
-var result_76824 = 0;
-result_76824 = (x_76823.kids != null ? x_76823.kids.length : 0);
-return result_76824;
-}
-function X5BX5D__76832(x_76834, idx_76835) {
-
-var result_76836 = null;
-result_76836 = x_76834.kids[idx_76835];
-return result_76836;
-}
-function sameAttrs_76999(a_77001, b_77002) {
-
-var result_77003 = false;
+var result_76624 = false;
 BeforeRet: do {
-if (((a_77001.attrs != null ? a_77001.attrs.length : 0) == (b_77002.attrs != null ? b_77002.attrs.length : 0))) {
-result_77003 = true;
-L1: do {
-var i_77034 = 0;
-var colontmp__77036 = 0;
-colontmp__77036 = (a_77001.attrs != null ? a_77001.attrs.length : 0);
-var i_77039 = 0;
-L2: do {
-L3: while (true) {
-if (!(i_77039 < colontmp__77036)) break L3;
-i_77034 = i_77039;
-if (!((a_77001.attrs[i_77034] == b_77002.attrs[i_77034]))) {
-result_77003 = false;
+if (!((a_76622.kind == b_76623.kind))) {
+result_76624 = false;
 break BeforeRet;
 }
 
-i_77039 += 1;
+if (!((a_76622.id == b_76623.id))) {
+result_76624 = false;
+break BeforeRet;
+}
+
+if (!((a_76622.class == b_76623.class))) {
+result_76624 = false;
+break BeforeRet;
+}
+
+if (!((a_76622.key == b_76623.key))) {
+result_76624 = false;
+break BeforeRet;
+}
+
+if (!((a_76622.kind == 0))) {
+if (!(((a_76622.kids != null ? a_76622.kids.length : 0) == (b_76623.kids != null ? b_76623.kids.length : 0)))) {
+result_76624 = false;
+break BeforeRet;
+}
+
+L1: do {
+var i_76672 = 0;
+var colontmp__76705 = 0;
+colontmp__76705 = (a_76622.kids != null ? a_76622.kids.length : 0);
+var i_76708 = 0;
+L2: do {
+L3: while (true) {
+if (!(i_76708 < colontmp__76705)) break L3;
+i_76672 = i_76708;
+if (!(eq_76620(a_76622.kids[i_76672], b_76623.kids[i_76672]))) {
+result_76624 = false;
+break BeforeRet;
+}
+
+i_76708 += 1;
+}
+} while(false);
+} while(false);
+}
+
+if (!((a_76622.text == b_76623.text))) {
+result_76624 = false;
+break BeforeRet;
+}
+
+if (!(((a_76622.attrs != null ? a_76622.attrs.length : 0) == (b_76623.attrs != null ? b_76623.attrs.length : 0)))) {
+result_76624 = false;
+break BeforeRet;
+}
+
+L4: do {
+var i_76703 = 0;
+var colontmp__76711 = 0;
+colontmp__76711 = (a_76622.attrs != null ? a_76622.attrs.length : 0);
+var i_76714 = 0;
+L5: do {
+L6: while (true) {
+if (!(i_76714 < colontmp__76711)) break L6;
+i_76703 = i_76714;
+if (!((a_76622.attrs[i_76703] == b_76623.attrs[i_76703]))) {
+result_76624 = false;
+break BeforeRet;
+}
+
+i_76714 += 1;
+}
+} while(false);
+} while(false);
+result_76624 = true;
+} while (false); 
+return result_76624;
+}
+function sameAttrs_77076(a_77078, b_77079) {
+
+var result_77080 = false;
+BeforeRet: do {
+if (((a_77078.attrs != null ? a_77078.attrs.length : 0) == (b_77079.attrs != null ? b_77079.attrs.length : 0))) {
+result_77080 = true;
+L1: do {
+var i_77111 = 0;
+var colontmp__77113 = 0;
+colontmp__77113 = (a_77078.attrs != null ? a_77078.attrs.length : 0);
+var i_77116 = 0;
+L2: do {
+L3: while (true) {
+if (!(i_77116 < colontmp__77113)) break L3;
+i_77111 = i_77116;
+if (!((a_77078.attrs[i_77111] == b_77079.attrs[i_77111]))) {
+result_77080 = false;
+break BeforeRet;
+}
+
+i_77116 += 1;
 }
 } while(false);
 } while(false);
 }
 
 } while (false); 
-return result_77003;
+return result_77080;
 }
 function equalsShallow_89489(a_89491, b_89492) {
 
 var Tmp1;
+var Tmp2;
 var result_89493 = false;
 BeforeRet: do {
+if (!(a_89491.key == -1)) Tmp1 = false; else {Tmp1 = (b_89492.key == -1); }if (Tmp1) {
+result_89493 = eq_76620(a_89491, b_89492);
+break BeforeRet;
+}
+else {
 if (!((a_89491.kind == b_89492.kind))) {
 result_89493 = false;
 break BeforeRet;
@@ -671,38 +749,15 @@ break BeforeRet;
 
 }
 else {
-if ((a_89491.kind == 3)) Tmp1 = true; else {Tmp1 = (a_89491.kind == 4); }if (Tmp1) {
+if ((a_89491.kind == 3)) Tmp2 = true; else {Tmp2 = (a_89491.kind == 4); }if (Tmp2) {
 if (!((a_89491.text == b_89492.text))) {
 result_89493 = false;
 break BeforeRet;
 }
 
-if (!((len_76821(a_89491) == len_76821(b_89492)))) {
-result_89493 = false;
-break BeforeRet;
-}
-
-L2: do {
-var i_89538 = 0;
-var colontmp__89540 = 0;
-colontmp__89540 = len_76821(a_89491);
-var i_89543 = 0;
-L3: do {
-L4: while (true) {
-if (!(i_89543 < colontmp__89540)) break L4;
-i_89538 = i_89543;
-if (!(equalsShallow_89489(X5BX5D__76832(a_89491, i_89538), X5BX5D__76832(b_89492, i_89538)))) {
-result_89493 = false;
-break BeforeRet;
-}
-
-i_89543 += 1;
-}
-} while(false);
-} while(false);
 }
 }
-if (!(sameAttrs_76999(a_89491, b_89492))) {
+if (!(sameAttrs_77076(a_89491, b_89492))) {
 result_89493 = false;
 break BeforeRet;
 }
@@ -714,177 +769,380 @@ break BeforeRet;
 
 result_89493 = true;
 break BeforeRet;
+}
+
 } while (false); 
 return result_89493;
 }
-function eq_76622(a_76624, b_76625) {
+function len_76893(x_76895) {
 
-var result_76626 = false;
+var result_76896 = 0;
+result_76896 = (x_76895.kids != null ? x_76895.kids.length : 0);
+return result_76896;
+}
+function X5BX5D__76904(x_76906, idx_76907) {
+
+var result_76908 = null;
+result_76908 = x_76906.kids[idx_76907];
+return result_76908;
+}
+function newSeq_89642(len_89646) {
+
+var result_89648 = null;
+result_89648 = new Array(len_89646); for (var i=0;i<len_89646;++i) {result_89648[i]=0;}return result_89648;
+}
+function longestIncreasingSubsequence_89591(a_89594) {
+
+var result_89596 = null;
 BeforeRet: do {
-if (!((a_76624.kind == b_76625.kind))) {
-result_76626 = false;
+if (((a_89594 != null ? a_89594.length : 0) == 0)) {
+result_89596 = nimCopy(null, [], NTI89618);
 break BeforeRet;
 }
 
-if (!((a_76624.id == b_76625.id))) {
-result_76626 = false;
-break BeforeRet;
-}
-
-if (!((a_76624.class == b_76625.class))) {
-result_76626 = false;
-break BeforeRet;
-}
-
-if (!((a_76624.key == b_76625.key))) {
-result_76626 = false;
-break BeforeRet;
-}
-
-if (!((a_76624.kind == 0))) {
-if (!(((a_76624.kids != null ? a_76624.kids.length : 0) == (b_76625.kids != null ? b_76625.kids.length : 0)))) {
-result_76626 = false;
-break BeforeRet;
-}
-
+if (result_89596 != null) { result_89596.push(0); } else { result_89596 = [0]; };
+var parent_89673 = newSeq_89642((a_89594 != null ? a_89594.length : 0));
 L1: do {
-var i_76674 = 0;
-var colontmp__76707 = 0;
-colontmp__76707 = (a_76624.kids != null ? a_76624.kids.length : 0);
-var i_76710 = 0;
+var i_89690 = 0;
+var colontmp__89740 = 0;
+colontmp__89740 = (a_89594 != null ? a_89594.length : 0);
+var i_89743 = 0;
 L2: do {
 L3: while (true) {
-if (!(i_76710 < colontmp__76707)) break L3;
-i_76674 = i_76710;
-if (!(eq_76622(a_76624.kids[i_76674], b_76625.kids[i_76674]))) {
-result_76626 = false;
-break BeforeRet;
-}
-
-i_76710 += 1;
-}
-} while(false);
-} while(false);
-}
-
-if (!((a_76624.text == b_76625.text))) {
-result_76626 = false;
-break BeforeRet;
-}
-
-if (!(((a_76624.attrs != null ? a_76624.attrs.length : 0) == (b_76625.attrs != null ? b_76625.attrs.length : 0)))) {
-result_76626 = false;
-break BeforeRet;
-}
-
+if (!(i_89743 < colontmp__89740)) break L3;
+i_89690 = i_89743;
 L4: do {
-var i_76705 = 0;
-var colontmp__76713 = 0;
-colontmp__76713 = (a_76624.attrs != null ? a_76624.attrs.length : 0);
-var i_76716 = 0;
+var j_89698 = result_89596[((result_89596 != null ? result_89596.length : 0) - 1)];
+if ((a_89594[j_89698] < a_89594[i_89690])) {
+parent_89673[i_89690] = j_89698;
+if (result_89596 != null) { result_89596.push(i_89690); } else { result_89596 = [i_89690]; };
+break L4;
+}
+
+var left_89709 = 0;
+var right_89717 = ((result_89596 != null ? result_89596.length : 0) - 1);
 L5: do {
 L6: while (true) {
-if (!(i_76716 < colontmp__76713)) break L6;
-i_76705 = i_76716;
-if (!((a_76624.attrs[i_76705] == b_76625.attrs[i_76705]))) {
-result_76626 = false;
-break BeforeRet;
+if (!(left_89709 < right_89717)) break L6;
+var mid_89718 = Math.floor((left_89709 + right_89717) / 2);
+if ((a_89594[result_89596[mid_89718]] < a_89594[i_89690])) {
+left_89709 = (mid_89718 + 1);
+}
+else {
+right_89717 = mid_89718;
 }
 
-i_76716 += 1;
+}
+} while(false);
+if ((a_89594[i_89690] < a_89594[result_89596[left_89709]])) {
+if ((0 < left_89709)) {
+parent_89673[i_89690] = result_89596[(left_89709 - 1)];
+}
+
+result_89596[left_89709] = i_89690;
+}
+
+} while(false);
+i_89743 += 1;
 }
 } while(false);
 } while(false);
-result_76626 = true;
+var pos_89726 = (result_89596 != null ? result_89596.length : 0);
+var v_89727 = result_89596[(pos_89726 - 1)];
+L7: do {
+L8: while (true) {
+if (!(0 < pos_89726)) break L8;
+result_89596[pos_89726] = v_89727;
+v_89727 = parent_89673[v_89727];
+pos_89726 -= 1;
+}
+} while(false);
 } while (false); 
-return result_76626;
+return result_89596;
 }
-function equalsTree_89545(a_89547, b_89548) {
+function newSeq_90232(len_90236) {
 
-var result_89549 = false;
-result_89549 = eq_76622(a_89547, b_89548);
-return result_89549;
+var result_90238 = null;
+result_90238 = new Array(len_90236); for (var i=0;i<len_90236;++i) {result_90238[i]=false;}return result_90238;
 }
-function updateElement_89663(parent_89665, current_89666, newNode_89667, oldNode_89668) {
+function updateElement_89746(parent_89748, current_89749, newNode_89750, oldNode_89751, ident_89752) {
 
 var Tmp5;
 var Tmp6;
-if (!(equalsShallow_89489(newNode_89667, oldNode_89668))) {
-oldNode_89668.dom = null;
-var n_89669 = vnodeToDom_89120(newNode_89667);
-if ((parent_89665 == null)) {
-replaceById_89484("ROOT", n_89669);
+var Tmp9;
+var Tmp10;
+var Tmp13;
+var Tmp14;
+var Tmp38;
+newNode_89750.dom = oldNode_89751.dom;
+if (!(equalsShallow_89489(newNode_89750, oldNode_89751))) {
+oldNode_89751.dom = null;
+var n_89753 = vnodeToDom_89120(newNode_89750);
+if ((parent_89748 == null)) {
+replaceById_89484("ROOT", n_89753);
 }
 else {
-parent_89665.replaceChild(n_89669, current_89666);
+parent_89748.replaceChild(n_89753, current_89749);
 }
 
 }
 else {
-if (!((newNode_89667.kind == 0))) {
-var newLength_89690 = len_76821(newNode_89667);
-var oldLength_89691 = len_76821(oldNode_89668);
-var minLength_89692 = nimMin(newLength_89690, oldLength_89691);
-var commonPrefix_90001 = 0;
+if (!((newNode_89750.kind == 0))) {
+var newLength_89774 = len_76893(newNode_89750);
+var oldLength_89775 = len_76893(oldNode_89751);
+var minLength_89776 = nimMin(newLength_89774, oldLength_89775);
+var left_90001 = 0;
 L1: do {
 L2: while (true) {
-if (!((commonPrefix_90001 < minLength_89692) && equalsTree_89545(X5BX5D__76832(newNode_89667, commonPrefix_90001), X5BX5D__76832(oldNode_89668, commonPrefix_90001)))) break L2;
-commonPrefix_90001 += 1;
+if (!((left_90001 < minLength_89776) && equalsShallow_89489(X5BX5D__76904(newNode_89750, left_90001), X5BX5D__76904(oldNode_89751, left_90001)))) break L2;
+updateElement_89746(current_89749, X5BX5D__76904(oldNode_89751, left_90001).dom, X5BX5D__76904(newNode_89750, left_90001), X5BX5D__76904(oldNode_89751, left_90001), (ident_89752 + 1));
+left_90001 += 1;
 }
 } while(false);
-var oldPos_90011 = (oldLength_89691 - 1);
-var newPos_90012 = (newLength_89690 - 1);
+var rightOld_90011 = (oldLength_89775 - 1);
+var rightNew_90012 = (newLength_89774 - 1);
 L3: do {
 L4: while (true) {
-if (!(commonPrefix_90001 <= oldPos_90011)) Tmp6 = false; else {Tmp6 = (commonPrefix_90001 <= newPos_90012); }if (!Tmp6) Tmp5 = false; else {Tmp5 = equalsTree_89545(X5BX5D__76832(newNode_89667, newPos_90012), X5BX5D__76832(oldNode_89668, oldPos_90011)); }if (!Tmp5) break L4;
-oldPos_90011 -= 1;
-newPos_90012 -= 1;
+if (!(left_90001 <= rightOld_90011)) Tmp6 = false; else {Tmp6 = (left_90001 <= rightNew_90012); }if (!Tmp6) Tmp5 = false; else {Tmp5 = equalsShallow_89489(X5BX5D__76904(newNode_89750, rightNew_90012), X5BX5D__76904(oldNode_89751, rightOld_90011)); }if (!Tmp5) break L4;
+updateElement_89746(current_89749, X5BX5D__76904(oldNode_89751, rightOld_90011).dom, X5BX5D__76904(newNode_89750, rightNew_90012), X5BX5D__76904(oldNode_89751, rightOld_90011), (ident_89752 + 1));
+rightOld_90011 -= 1;
+rightNew_90012 -= 1;
 }
 } while(false);
-var pos_90031 = (nimMin(oldPos_90011, newPos_90012) + 1);
+var leftOld_90031 = left_90001;
+var leftNew_90032 = left_90001;
 L7: do {
-var i_90041 = 0;
-var colontmp__90083 = 0;
-colontmp__90083 = (pos_90031 - 1);
-var res_90086 = commonPrefix_90001;
-L8: do {
-L9: while (true) {
-if (!(res_90086 <= colontmp__90083)) break L9;
-i_90041 = res_90086;
-updateElement_89663(current_89666, current_89666.childNodes[i_90041], X5BX5D__76832(newNode_89667, i_90041), X5BX5D__76832(oldNode_89668, i_90041));
-res_90086 += 1;
-}
-} while(false);
-} while(false);
-var nextChildPos_90042 = (oldPos_90011 + 1);
-L10: do {
-L11: while (true) {
-if (!(pos_90031 <= newPos_90012)) break L11;
-if ((nextChildPos_90042 == oldLength_89691)) {
-current_89666.appendChild(vnodeToDom_89120(X5BX5D__76832(newNode_89667, pos_90031)));
-}
-else {
-current_89666.insertBefore(vnodeToDom_89120(X5BX5D__76832(newNode_89667, pos_90031)), current_89666.childNodes[nextChildPos_90042]);
+L8: while (true) {
+if (!(leftOld_90031 <= rightOld_90011)) Tmp10 = false; else {Tmp10 = (leftNew_90032 <= rightNew_90012); }if (!Tmp10) Tmp9 = false; else {Tmp9 = equalsShallow_89489(X5BX5D__76904(oldNode_89751, leftOld_90031), X5BX5D__76904(newNode_89750, rightNew_90012)); }if (!Tmp9) break L8;
+var nextNode_90033 = null;
+if (((rightNew_90012 + 1) < newLength_89774)) {
+nextNode_90033 = X5BX5D__76904(newNode_89750, (rightNew_90012 + 1)).dom;
 }
 
-oldLength_89691 += 1;
-pos_90031 += 1;
-nextChildPos_90042 += 1;
+updateElement_89746(current_89749, X5BX5D__76904(oldNode_89751, leftOld_90031).dom, X5BX5D__76904(newNode_89750, rightNew_90012), X5BX5D__76904(oldNode_89751, leftOld_90031), (ident_89752 + 1));
+if ((nextNode_90033 == null)) {
+current_89749.appendChild(X5BX5D__76904(oldNode_89751, leftOld_90031).dom);
+}
+else {
+current_89749.insertBefore(X5BX5D__76904(oldNode_89751, leftOld_90031).dom, nextNode_90033);
+}
+
+leftOld_90031 += 1;
+rightNew_90012 -= 1;
 }
 } while(false);
-L12: do {
-var i_90079 = 0;
-var res_90094 = pos_90031;
-L13: do {
-L14: while (true) {
-if (!(res_90094 <= oldPos_90011)) break L14;
-i_90079 = res_90094;
-X5BX5D__76832(oldNode_89668, i_90079).dom = null;
-current_89666.removeChild(current_89666.childNodes[pos_90031]);
-res_90094 += 1;
+L11: do {
+L12: while (true) {
+if (!(leftOld_90031 <= rightOld_90011)) Tmp14 = false; else {Tmp14 = (leftNew_90032 <= rightNew_90012); }if (!Tmp14) Tmp13 = false; else {Tmp13 = equalsShallow_89489(X5BX5D__76904(oldNode_89751, rightOld_90011), X5BX5D__76904(newNode_89750, leftNew_90032)); }if (!Tmp13) break L12;
+var nextNode_90063 = X5BX5D__76904(oldNode_89751, leftOld_90031).dom;
+updateElement_89746(current_89749, X5BX5D__76904(oldNode_89751, rightOld_90011).dom, X5BX5D__76904(newNode_89750, leftNew_90032), X5BX5D__76904(oldNode_89751, rightOld_90011), (ident_89752 + 1));
+current_89749.insertBefore(X5BX5D__76904(oldNode_89751, rightOld_90011).dom, nextNode_90063);
+leftNew_90032 += 1;
+rightOld_90011 -= 1;
+}
+} while(false);
+var isKeyed_90082 = true;
+L15: do {
+var i_90092 = 0;
+var res_90385 = leftNew_90032;
+L16: do {
+L17: while (true) {
+if (!(res_90385 <= rightNew_90012)) break L17;
+i_90092 = res_90385;
+if ((X5BX5D__76904(newNode_89750, i_90092).key == -1)) {
+isKeyed_90082 = false;
+break L15;
+}
+
+res_90385 += 1;
 }
 } while(false);
 } while(false);
+L18: do {
+var i_90102 = 0;
+var res_90392 = leftOld_90031;
+L19: do {
+L20: while (true) {
+if (!(res_90392 <= rightOld_90011)) break L20;
+i_90102 = res_90392;
+if ((X5BX5D__76904(oldNode_89751, i_90102).key == -1)) {
+isKeyed_90082 = false;
+}
+
+if (!(isKeyed_90082)) {
+break L18;
+}
+
+res_90392 += 1;
+}
+} while(false);
+} while(false);
+if (((((((rightNew_90012 - leftNew_90032) + 1) + rightOld_90011) - leftOld_90031) + 1) == 0)) {
+isKeyed_90082 = false;
+}
+
+if (isKeyed_90082) {
+if ((leftNew_90032 < rightNew_90012)) {
+L21: do {
+var i_90112 = 0;
+var res_90399 = leftOld_90031;
+L22: do {
+L23: while (true) {
+if (!(res_90399 <= rightOld_90011)) break L23;
+i_90112 = res_90399;
+current_89749.removeChild(X5BX5D__76904(oldNode_89751, i_90112).dom);
+X5BX5D__76904(oldNode_89751, i_90112).dom = null;
+res_90399 += 1;
+}
+} while(false);
+} while(false);
+}
+else {
+var positionByKey_90120 = {};
+var positions_90147 = newSeq_89642(0);
+L24: do {
+var i_90157 = 0;
+var res_90406 = leftOld_90031;
+L25: do {
+L26: while (true) {
+if (!(res_90406 <= rightOld_90011)) break L26;
+i_90157 = res_90406;
+positionByKey_90120[X5BX5D__76904(oldNode_89751, i_90157).key] = i_90157;
+res_90406 += 1;
+}
+} while(false);
+} while(false);
+L27: do {
+var i_90179 = 0;
+var res_90413 = leftNew_90032;
+L28: do {
+L29: while (true) {
+if (!(res_90413 <= rightNew_90012)) break L29;
+i_90179 = res_90413;
+if (positionByKey_90120.hasOwnProperty(X5BX5D__76904(newNode_89750, i_90179).key)) {
+if (positions_90147 != null) { positions_90147.push(positionByKey_90120[X5BX5D__76904(newNode_89750, i_90179).key]); } else { positions_90147 = [positionByKey_90120[X5BX5D__76904(newNode_89750, i_90179).key]]; };
+}
+
+res_90413 += 1;
+}
+} while(false);
+} while(false);
+if (((positions_90147 != null ? positions_90147.length : 0) == 0)) {
+isKeyed_90082 = false;
+}
+
+if (isKeyed_90082) {
+var lis_90217 = longestIncreasingSubsequence_89591(positions_90147);
+var lisPos_90218 = 0;
+var isNotRedundant_90256 = newSeq_90232(((rightOld_90011 - leftOld_90031) + 1));
+L30: do {
+var i_90266 = 0;
+var res_90427 = leftNew_90032;
+L31: do {
+L32: while (true) {
+if (!(res_90427 <= rightNew_90012)) break L32;
+i_90266 = res_90427;
+if ((lisPos_90218 < (lis_90217 != null ? lis_90217.length : 0))) {
+var index_90274 = lis_90217[lisPos_90218];
+if ((X5BX5D__76904(oldNode_89751, index_90274).key == X5BX5D__76904(newNode_89750, i_90266).key)) {
+isNotRedundant_90256[(index_90274 - leftOld_90031)] = true;
+updateElement_89746(current_89749, X5BX5D__76904(oldNode_89751, index_90274).dom, X5BX5D__76904(newNode_89750, i_90266), X5BX5D__76904(oldNode_89751, index_90274), (ident_89752 + 1));
+lisPos_90218 += 1;
+}
+else {
+if (positionByKey_90120.hasOwnProperty(X5BX5D__76904(newNode_89750, i_90266).key)) {
+var oldPos_90304 = positionByKey_90120[X5BX5D__76904(newNode_89750, i_90266).key];
+isNotRedundant_90256[(oldPos_90304 - leftOld_90031)] = true;
+current_89749.insertBefore(X5BX5D__76904(oldNode_89751, oldPos_90304).dom, X5BX5D__76904(oldNode_89751, index_90274).dom);
+}
+else {
+current_89749.insertBefore(vnodeToDom_89120(X5BX5D__76904(newNode_89750, i_90266)), X5BX5D__76904(oldNode_89751, index_90274).dom);
+}
+
+}
+
+}
+else {
+if (positionByKey_90120.hasOwnProperty(X5BX5D__76904(newNode_89750, i_90266).key)) {
+var oldPos_90325 = positionByKey_90120[X5BX5D__76904(newNode_89750, i_90266).key];
+isNotRedundant_90256[(oldPos_90325 - leftOld_90031)] = true;
+current_89749.appendChild(X5BX5D__76904(oldNode_89751, oldPos_90325).dom);
+}
+else {
+current_89749.appendChild(vnodeToDom_89120(X5BX5D__76904(newNode_89750, i_90266)));
+}
+
+}
+
+L33: do {
+var i_90335 = 0;
+var res_90421 = leftOld_90031;
+L34: do {
+L35: while (true) {
+if (!(res_90421 <= rightOld_90011)) break L35;
+i_90335 = res_90421;
+if (!(isNotRedundant_90256[i_90335])) {
+current_89749.removeChild(X5BX5D__76904(oldNode_89751, i_90335).dom);
+}
+
+res_90421 += 1;
+}
+} while(false);
+} while(false);
+res_90427 += 1;
+}
+} while(false);
+} while(false);
+}
+
+}
+
+}
+
+if (!(isKeyed_90082)) {
+L36: do {
+L37: while (true) {
+if (!(leftOld_90031 <= rightOld_90011)) Tmp38 = false; else {Tmp38 = (leftNew_90032 <= rightNew_90012); }if (!Tmp38) break L37;
+updateElement_89746(current_89749, X5BX5D__76904(oldNode_89751, leftOld_90031).dom, X5BX5D__76904(newNode_89750, leftNew_90032), X5BX5D__76904(oldNode_89751, leftOld_90031), (ident_89752 + 1));
+leftNew_90032 += 1;
+leftOld_90031 += 1;
+}
+} while(false);
+var isPushBack_90354 = ((rightNew_90012 + 1) == newLength_89774);
+var nextNode_90355 = null;
+if (!(isPushBack_90354)) {
+nextNode_90355 = X5BX5D__76904(newNode_89750, (rightNew_90012 + 1)).dom;
+}
+
+L39: do {
+L40: while (true) {
+if (!(leftNew_90032 <= rightNew_90012)) break L40;
+var node_90356 = vnodeToDom_89120(X5BX5D__76904(newNode_89750, leftNew_90032));
+if (isPushBack_90354) {
+current_89749.appendChild(node_90356);
+}
+else {
+current_89749.insertBefore(node_90356, nextNode_90355);
+}
+
+leftNew_90032 += 1;
+}
+} while(false);
+L41: do {
+var i_90375 = 0;
+var res_90437 = leftOld_90031;
+L42: do {
+L43: while (true) {
+if (!(res_90437 <= rightOld_90011)) break L43;
+i_90375 = res_90437;
+current_89749.removeChild(X5BX5D__76904(oldNode_89751, i_90375).dom);
+X5BX5D__76904(oldNode_89751, i_90375).dom = null;
+res_90437 += 1;
+}
+} while(false);
+} while(false);
+}
+
 }
 }
 }
@@ -898,65 +1156,65 @@ function unmarkDirty_87071(key_87073) {
 
 delete dirty_87054[0][key_87073];
 }
-function updateDirtyElements_89601(parent_89603, current_89604, newNode_89605) {
+function updateDirtyElements_89529(parent_89531, current_89532, newNode_89533) {
 
 var Tmp1;
 var Tmp2;
 var Tmp3;
-if (!(0 <= newNode_89605.key)) Tmp1 = false; else {Tmp1 = isDirty_87083(newNode_89605.key); }if (Tmp1) {
-unmarkDirty_87071(newNode_89605.key);
-var n_89606 = vnodeToDom_89120(newNode_89605);
-if ((parent_89603 == null)) {
-replaceById_89484("ROOT", n_89606);
+if (!(0 <= newNode_89533.key)) Tmp1 = false; else {Tmp1 = isDirty_87083(newNode_89533.key); }if (Tmp1) {
+unmarkDirty_87071(newNode_89533.key);
+var n_89534 = vnodeToDom_89120(newNode_89533);
+if ((parent_89531 == null)) {
+replaceById_89484("ROOT", n_89534);
 }
 else {
-parent_89603.replaceChild(n_89606, current_89604);
+parent_89531.replaceChild(n_89534, current_89532);
 }
 
 }
 else {
-if (!!((newNode_89605.kind == 0))) Tmp3 = false; else {Tmp3 = !((newNode_89605.kind == 3)); }if (!Tmp3) Tmp2 = false; else {Tmp2 = !((newNode_89605.kind == 4)); }if (Tmp2) {
+if (!!((newNode_89533.kind == 0))) Tmp3 = false; else {Tmp3 = !((newNode_89533.kind == 3)); }if (!Tmp3) Tmp2 = false; else {Tmp2 = !((newNode_89533.kind == 4)); }if (Tmp2) {
 L4: do {
-var i_89654 = 0;
-var colontmp__89656 = 0;
-colontmp__89656 = (len_76821(newNode_89605) - 1);
-var res_89659 = 0;
+var i_89582 = 0;
+var colontmp__89584 = 0;
+colontmp__89584 = (len_76893(newNode_89533) - 1);
+var res_89587 = 0;
 L5: do {
 L6: while (true) {
-if (!(res_89659 <= colontmp__89656)) break L6;
-i_89654 = res_89659;
-updateDirtyElements_89601(current_89604, current_89604.childNodes[i_89654], X5BX5D__76832(newNode_89605, i_89654));
-res_89659 += 1;
+if (!(res_89587 <= colontmp__89584)) break L6;
+i_89582 = res_89587;
+updateDirtyElements_89529(current_89532, current_89532.childNodes[i_89582], X5BX5D__76904(newNode_89533, i_89582));
+res_89587 += 1;
 }
 } while(false);
 } while(false);
 }
 }
 }
-function dodraw_90201() {
+function dodraw_90601() {
 
 BeforeRet: do {
 if ((dorender_89480[0] === null)) {
 break BeforeRet;
 }
 
-var newtree_90209 = dorender_89480[0]();
-newtree_90209.id = "ROOT";
+var newtree_90609 = dorender_89480[0]();
+newtree_90609.id = "ROOT";
 toFocus_89021[0] = null;
 if ((currentTree_89481[0] == null)) {
-currentTree_89481[0] = newtree_90209;
-var asdom_90221 = vnodeToDom_89120(currentTree_89481[0]);
-replaceById_89484("ROOT", asdom_90221);
+currentTree_89481[0] = newtree_90609;
+var asdom_90621 = vnodeToDom_89120(currentTree_89481[0]);
+replaceById_89484("ROOT", asdom_90621);
 }
 else {
-var olddom_90222 = document.getElementById("ROOT");
-updateElement_89663(null, olddom_90222, newtree_90209, currentTree_89481[0]);
+var olddom_90622 = document.getElementById("ROOT");
+updateElement_89746(null, olddom_90622, newtree_90609, currentTree_89481[0], 0);
 if (someDirty_87055[0]) {
-updateDirtyElements_89601(null, olddom_90222, newtree_90209);
+updateDirtyElements_89529(null, olddom_90622, newtree_90609);
 someDirty_87055[0] = false;
 }
 
-currentTree_89481[0] = newtree_90209;
+currentTree_89481[0] = newtree_90609;
 }
 
 if (!((toFocus_89021[0] == null))) {
@@ -965,24 +1223,24 @@ toFocus_89021[0].focus();
 
 } while (false); 
 }
-function redraw_90239() {
+function redraw_90639() {
 
-window.requestAnimationFrame(dodraw_90201);
+window.requestAnimationFrame(dodraw_90601);
 }
-function addEventHandler_90418(n_90420, k_90421, action_90422) {
+function addEventHandler_90818(n_90820, k_90821, action_90822) {
 
-function wrapper_90423(ev_90425, n_90426) {
+function wrapper_90823(ev_90825, n_90826) {
 
-action_90422(ev_90425, n_90426);
-redraw_90239();
+action_90822(ev_90825, n_90826);
+redraw_90639();
 }
-addEventListener_77041(n_90420, k_90421, wrapper_90423);
+addEventListener_77118(n_90820, k_90821, wrapper_90823);
 }
-function text_76935(s_76937) {
+function text_77012(s_77014) {
 
-var result_76938 = null;
-result_76938 = {kind: 0, text: s_76937, key: -1, id: null, class: null, kids: null, attrs: null, events: null, hash: 0, validHash: false, dom: null};
-return result_76938;
+var result_77015 = null;
+result_77015 = {kind: 0, text: s_77014, key: -1, id: null, class: null, track: 0, kids: null, attrs: null, events: null, dom: null};
+return result_77015;
 }
 function createTableCell_94091(id_94093) {
 
@@ -991,10 +1249,10 @@ function tableCellClick_94095(ev_94098, n_94099) {
 console.log(("Clicked" + id_94093));
 }
 var result_94094 = null;
-var tmp_94112 = tree_76856(95, []);
+var tmp_94112 = tree_76933(95, []);
 tmp_94112.class = "TableCell";
-addEventHandler_90418(tmp_94112, 0, tableCellClick_94095);
-add_76837(tmp_94112, text_76935(id_94093));
+addEventHandler_90818(tmp_94112, 0, tableCellClick_94095);
+add_76914(tmp_94112, text_77012(id_94093));
 result_94094 = tmp_94112;
 return result_94094;
 }
@@ -1006,10 +1264,10 @@ if (item_94117.active) {
 className_94119 = "TableRow active";
 }
 
-var tmp_94126 = tree_76856(94, []);
+var tmp_94126 = tree_76933(94, []);
 tmp_94126.class = className_94119;
-setAttr_76718(tmp_94126, "data-id", ((item_94117.id)+''));
-add_76837(tmp_94126, createTableCell_94091(("#" + ((item_94117.id)+''))));
+setAttr_76716(tmp_94126, "data-id", ((item_94117.id)+''));
+add_76914(tmp_94126, createTableCell_94091(("#" + ((item_94117.id)+''))));
 L1: do {
 var i_94143 = 0;
 var colontmp__94146 = 0;
@@ -1019,7 +1277,7 @@ L2: do {
 L3: while (true) {
 if (!(i_94149 < colontmp__94146)) break L3;
 i_94143 = i_94149;
-add_76837(tmp_94126, createTableCell_94091(item_94117.props[i_94143]));
+add_76914(tmp_94126, createTableCell_94091(item_94117.props[i_94143]));
 i_94149 += 1;
 }
 } while(false);
@@ -1030,9 +1288,9 @@ return result_94118;
 function tableCreateVNode_94151(data_94153) {
 
 var result_94154 = null;
-var tmp_94162 = tree_76856(87, []);
+var tmp_94162 = tree_76933(87, []);
 tmp_94162.class = "Table";
-var tmp_94168 = tree_76856(91, []);
+var tmp_94168 = tree_76933(91, []);
 L1: do {
 var child_94402 = null;
 var colontmp__94406 = null;
@@ -1043,12 +1301,12 @@ L2: do {
 L3: while (true) {
 if (!(i_94409 < L_94411)) break L3;
 child_94402 = colontmp__94406[i_94409];
-add_76837(tmp_94168, createTableRow_94115(child_94402));
+add_76914(tmp_94168, createTableRow_94115(child_94402));
 i_94409 += 1;
 }
 } while(false);
 } while(false);
-add_76837(tmp_94162, tmp_94168);
+add_76914(tmp_94162, tmp_94168);
 result_94154 = tmp_94162;
 return result_94154;
 }
@@ -1059,17 +1317,17 @@ var time_94416 = item_94414.time;
 var dataId_94417 = ((item_94414.id)+'');
 var color_94420 = (Math.floor(time_94416 % 10) / 1.0000000000000000e+01);
 var divStyles_94422 = (((("border-radius: " + ((Math.floor(time_94416 % 10))+'')) + "px; background: rgba(0,0,0,") + toJSStr(cstrToNimstr((color_94420)+""))) + ")");
-var tmp_94429 = tree_76856(41, []);
+var tmp_94429 = tree_76933(41, []);
 tmp_94429.class = "AnimBox";
-setAttr_76718(tmp_94429, "data-id", dataId_94417);
-setAttr_76718(tmp_94429, "style", divStyles_94422);
+setAttr_76716(tmp_94429, "data-id", dataId_94417);
+setAttr_76716(tmp_94429, "style", divStyles_94422);
 result_94415 = tmp_94429;
 return result_94415;
 }
 function animCreateVNode_94436(data_94438) {
 
 var result_94439 = null;
-var tmp_94446 = tree_76856(41, []);
+var tmp_94446 = tree_76933(41, []);
 tmp_94446.class = "Anim";
 L1: do {
 var child_94602 = null;
@@ -1081,7 +1339,7 @@ L2: do {
 L3: while (true) {
 if (!(i_94608 < L_94610)) break L3;
 child_94602 = colontmp__94605[i_94608];
-add_76837(tmp_94446, createAnimBox_94412(child_94602));
+add_76914(tmp_94446, createAnimBox_94412(child_94602));
 i_94608 += 1;
 }
 } while(false);
@@ -1092,16 +1350,16 @@ return result_94439;
 function createTreeLeaf_94611(data_94613) {
 
 var result_94614 = null;
-var tmp_94621 = tree_76856(35, []);
+var tmp_94621 = tree_76933(35, []);
 tmp_94621.class = "TreeLeaf";
-add_76837(tmp_94621, text_76935(((data_94613.id)+'')));
+add_76914(tmp_94621, text_77012(((data_94613.id)+'')));
 result_94614 = tmp_94621;
 return result_94614;
 }
 function createTreeNode_94623(data_94625) {
 
 var result_94626 = null;
-var tmp_94633 = tree_76856(34, []);
+var tmp_94633 = tree_76933(34, []);
 tmp_94633.class = "TreeNode";
 L1: do {
 var n_94802 = null;
@@ -1114,10 +1372,10 @@ L3: while (true) {
 if (!(i_94808 < L_94810)) break L3;
 n_94802 = colontmp__94805[i_94808];
 if (n_94802.container) {
-add_76837(tmp_94633, createTreeNode_94623(n_94802));
+add_76914(tmp_94633, createTreeNode_94623(n_94802));
 }
 else {
-add_76837(tmp_94633, createTreeLeaf_94611(n_94802));
+add_76914(tmp_94633, createTreeLeaf_94611(n_94802));
 }
 
 i_94808 += 1;
@@ -1130,9 +1388,9 @@ return result_94626;
 function treeCreateVNode_94811(data_94813) {
 
 var result_94814 = null;
-var tmp_94821 = tree_76856(41, []);
+var tmp_94821 = tree_76933(41, []);
 tmp_94821.class = "Tree";
-add_76837(tmp_94821, createTreeNode_94623(data_94813.root));
+add_76914(tmp_94821, createTreeNode_94623(data_94813.root));
 result_94814 = tmp_94821;
 return result_94814;
 }
@@ -1153,21 +1411,21 @@ if ((location_95001 == "tree")) {
 children_95002 = treeCreateVNode_94811(appState_94089[0].tree);
 }
 }}
-var tmp_95009 = tree_76856(41, []);
+var tmp_95009 = tree_76933(41, []);
 tmp_95009.class = "Main";
-add_76837(tmp_95009, children_95002);
+add_76914(tmp_95009, children_95002);
 result_94825 = tmp_95009;
 return result_94825;
 }
-setRendererOnly_90411(update_94823);
-function redrawForce_90401() {
+setRendererOnly_90811(update_94823);
+function redrawForce_90801() {
 
-dodraw_90201();
+dodraw_90601();
 }
 function a_95012(state_95014) {
 
 appState_94089[0] = state_95014;
-redrawForce_90401();
+redrawForce_90801();
 }
 function b_95020(samples_95022) {
 
